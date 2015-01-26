@@ -1,14 +1,7 @@
 package Alt::DhMakePerl::installable;
 
 use 5.010001;
-use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 1 $ =~ /\d+/gmx );
-
-use Moo;
-use Class::Usul::Constants;
-use Class::Usul::Functions  qw( throw );
-
-extends q(Class::Usul::Programs);
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 2 $ =~ /\d+/gmx );
 
 1;
 
@@ -20,38 +13,49 @@ __END__
 
 =head1 Name
 
-Alt::DhMakePerl::installable - One-line description of the modules purpose
+Alt::DhMakePerl::installable - Create Debian source package from CPAN dist
 
 =head1 Synopsis
 
-   use Alt::DhMakePerl::installable;
-   # Brief but working code examples
+   use DhMakePerl;
+
+   DhMakePerl->run;
 
 =head1 Description
 
+Clone of L<DhMakePerl> but installable. It includes the packages missing from
+CPAN that prevent original from being installed
+
+Addresses the issue in RT#64378
+
 =head1 Configuration and Environment
 
-Defines the following attributes;
-
-=over 3
-
-=back
+Defines no attributes
 
 =head1 Subroutines/Methods
 
+None
+
 =head1 Diagnostics
+
+None
 
 =head1 Dependencies
 
+Requires the following native packages to be installed
+
 =over 3
 
-=item L<Class::Usul>
+=item C<gettext>
+
+=item C<libapt-pkg-dev>
 
 =back
 
 =head1 Incompatibilities
 
-There are no known incompatibilities in this module
+The hard coded share directory path was replaced with a call to
+L<File::ShareDir>
 
 =head1 Bugs and Limitations
 
@@ -71,12 +75,7 @@ Peter Flanigan, C<< <pjfl@cpan.org> >>
 
 Copyright (c) 2015 Peter Flanigan. All rights reserved
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself. See L<perlartistic>
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
+GNU GENERAL PUBLIC LICENSE Version 2
 
 =cut
 

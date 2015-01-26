@@ -1,5 +1,9 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Dropped calls to Locale::gettext coz it's dead
+          - Changed Dynaloader expect version to make Alt-DhMakePerl-installable
+          - Replaced hardcoded path with File::ShareDir
+
 0.1.1     2015-01-15 23:25:50
           - Added project files to master branch
 
