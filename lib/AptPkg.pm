@@ -7,7 +7,7 @@ use warnings;
 require DynaLoader;
 
 our @ISA = qw(DynaLoader);
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 2 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 5 $ =~ /\d+/gmx );
 
 bootstrap AptPkg $VERSION;
 

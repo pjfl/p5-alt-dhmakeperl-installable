@@ -12,7 +12,7 @@ use AptPkg::System '$_system';
 
 my $c = AptPkg::Config->new;
 
-is $c->set( a => 42), 42, 'set';
+is $c->set( a => 42 ), 42, 'set';
 is $c->get( 'a' ), 42, 'get';
 is $c->get( 'not there', 'default' ), 'default', 'default';
 
