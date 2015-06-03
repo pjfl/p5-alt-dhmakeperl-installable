@@ -1,7 +1,7 @@
 package Alt::DhMakePerl::installable;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 7 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 8 $ =~ /\d+/gmx );
 
 1;
 
@@ -24,7 +24,7 @@ Alt::DhMakePerl::installable - Create Debian source package from CPAN dist
 =head1 Description
 
 Clone of L<DhMakePerl> but installable. It includes the packages missing from
-CPAN that prevent original from being installed
+CPAN that prevent the original from being installed
 
 Addresses the issue in RT#64378
 
@@ -45,8 +45,6 @@ None
 Requires the following native packages to be installed
 
 =over 3
-
-=item C<gettext>
 
 =item C<libapt-pkg-dev>
 

@@ -19,6 +19,8 @@ BEGIN {
    $builder and $notes = $builder->notes;
    $perl_ver  = $notes->{min_perl_version} || 5.008;
    lc $OSNAME ne 'linux' and plan skip_all => 'OS unsupported';
+   $notes->{testing} and not $notes->{have_required_libs}
+                         and plan skip_all => 'Required libs not found';
 }
 
 use Test::Requires "${perl_ver}";

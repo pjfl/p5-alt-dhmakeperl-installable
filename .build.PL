@@ -33,6 +33,23 @@ exit 0;
 
 __DATA__
 
+use ExtUtils::CChecker;
+
+sub ACTION_code {
+   my ($self, @args) = @_; my $cc = ExtUtils::CChecker->new;
+
+   my $success = $cc->try_find_libs_for
+      ( libs => [ 'apt-pkg' ] , source => <<'EOS' );
+         int main(int argc, char *argv[]) {
+            return 0;
+         }
+EOS
+
+   $self->notes( have_required_libs => $success );
+
+   return $success ? $self->SUPER::ACTION_code( @args ) : 1;
+}
+
 sub ACTION_generate_main_xs {
    return 1;
 }

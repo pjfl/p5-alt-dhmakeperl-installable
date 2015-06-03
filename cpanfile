@@ -20,12 +20,15 @@ requires "perl" => "5.010001";
 requires "version" => "0.88";
 
 on 'build' => sub {
+  requires "ExtUtils::CChecker" => "0.10";
   requires "Module::Build" => "0.4004";
+  requires "Module::Build::WithXSpp" => "0.14";
   requires "Test::Requires" => "0.06";
   requires "version" => "0.88";
 };
 
 on 'configure' => sub {
+  requires "ExtUtils::CChecker" => "0.10";
   requires "Module::Build" => "0.4004";
   requires "Module::Build::WithXSpp" => "0.14";
   requires "version" => "0.88";

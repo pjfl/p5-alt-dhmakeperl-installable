@@ -11,11 +11,14 @@ my $perl_ver = 5.010001;
 my $name     = 'Alt-DhMakePerl-installable'; $name =~ s{ - }{::}gmx;
 my $prereqs  = {
   'build_requires' => {
+    'ExtUtils::CChecker' => '0.10',
     'Module::Build' => '0.4004',
+    'Module::Build::WithXSpp' => '0.14',
     'Test::Requires' => '0.06',
     'version' => '0.88'
   },
   'configure_requires' => {
+    'ExtUtils::CChecker' => '0.10',
     'Module::Build' => '0.4004',
     'Module::Build::WithXSpp' => '0.14',
     'version' => '0.88'
@@ -63,6 +66,23 @@ Module::Build::WithXSpp->subclass( code => do { local $/; <DATA> } )->new(
 exit 0;
 
 __DATA__
+
+use ExtUtils::CChecker;
+
+sub ACTION_code {
+   my ($self, @args) = @_; my $cc = ExtUtils::CChecker->new;
+
+   my $success = $cc->try_find_libs_for
+      ( libs => [ 'apt-pkg' ] , source => <<'EOS' );
+         int main(int argc, char *argv[]) {
+            return 0;
+         }
+EOS
+
+   $self->notes( have_required_libs => $success );
+
+   return $success ? $self->SUPER::ACTION_code( @args ) : 1;
+}
 
 sub ACTION_generate_main_xs {
    return 1;

@@ -11,7 +11,7 @@ Alt::DhMakePerl::installable - Create Debian source package from CPAN dist
 # Description
 
 Clone of [DhMakePerl](https://metacpan.org/pod/DhMakePerl) but installable. It includes the packages missing from
-CPAN that prevent original from being installed
+CPAN that prevent the original from being installed
 
 Addresses the issue in RT#64378
 
