@@ -1,5 +1,6 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Added public repository
           - Added some standard author tests
           - Dropped calls to Locale::gettext coz it's dead
           - Changed Dynaloader expect version to make Alt-DhMakePerl-installable

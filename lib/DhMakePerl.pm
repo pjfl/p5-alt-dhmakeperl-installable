@@ -10,7 +10,7 @@ __PACKAGE__->mk_accessors( qw( cfg apt_contents ) );
 
 =head1 NAME
 
-DhMakePerl - create Debian source package from CPAN dist
+DhMakePerl - Create Debian source package from CPAN dist
 
 =head1 VERSION
 
