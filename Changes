@@ -1,5 +1,6 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Added libapt-pkg-dev install to Travis
           - Added test for required libraries
           - Added public repository
           - Added some standard author tests

@@ -2,3 +2,5 @@ language: perl
 branches:
   only:
     - master
+before_install:
+  - sudo apt-get install libapt-pkg-dev
