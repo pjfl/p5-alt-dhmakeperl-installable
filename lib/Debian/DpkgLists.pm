@@ -1,4 +1,5 @@
-package Debian::DpkgLists;
+package # Hide from indexer
+  Debian::DpkgLists;
 
 use strict;
 use warnings;

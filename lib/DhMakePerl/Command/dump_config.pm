@@ -1,4 +1,5 @@
-package DhMakePerl::Command::dump_config;
+package # Hide from indexer
+  DhMakePerl::Command::dump_config;
 
 =head1 NAME
 

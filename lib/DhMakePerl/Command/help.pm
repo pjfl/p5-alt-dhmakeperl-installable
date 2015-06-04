@@ -1,4 +1,5 @@
-package DhMakePerl::Command::help;
+package # Hide from indexer
+  DhMakePerl::Command::help;
 
 =head1 NAME
 

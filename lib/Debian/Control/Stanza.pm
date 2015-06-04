@@ -18,7 +18,8 @@ classes.
 
 =cut
 
-package Debian::Control::Stanza;
+package # Hide from indexer
+   Debian::Control::Stanza;
 
 require v5.10.0;
 

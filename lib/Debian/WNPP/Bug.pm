@@ -1,4 +1,5 @@
-package Debian::WNPP::Bug;
+package # Hide from indexer
+  Debian::WNPP::Bug;
 
 use strict;
 use warnings;

@@ -1,4 +1,5 @@
-package DhMakePerl::Command::refresh;
+package # Hide from indexer
+  DhMakePerl::Command::refresh;
 
 =head1 NAME
 

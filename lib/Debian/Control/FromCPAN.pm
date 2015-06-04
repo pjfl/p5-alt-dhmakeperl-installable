@@ -11,7 +11,8 @@ Debian::Control::FromCPAN - fill F<debian/control> from unpacked CPAN distributi
     Debian::Control::FromCPAN inherits from L<Debian::Control>.
 =cut
 
-package Debian::Control::FromCPAN;
+package # Hide from indexer
+  Debian::Control::FromCPAN;
 
 use strict;
 use warnings;

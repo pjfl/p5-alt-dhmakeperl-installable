@@ -1,4 +1,5 @@
-package Debian::Dependency;
+package # Hide from indexer
+  Debian::Dependency;
 
 use strict;
 use warnings;

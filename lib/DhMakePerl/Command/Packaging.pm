@@ -1,4 +1,5 @@
-package DhMakePerl::Command::Packaging;
+package # Hide from indexer
+  DhMakePerl::Command::Packaging;
 
 use strict;
 use warnings;

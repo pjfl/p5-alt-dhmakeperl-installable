@@ -1,4 +1,5 @@
-package DhMakePerl::Command::locate;
+package # Hide from indexer
+  DhMakePerl::Command::locate;
 
 =head1 NAME
 

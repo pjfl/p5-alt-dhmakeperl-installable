@@ -1,4 +1,5 @@
-package Debian::AptContents;
+package # Hide from indexer
+  Debian::AptContents;
 
 use strict;
 use warnings;

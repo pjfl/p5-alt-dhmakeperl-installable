@@ -1,4 +1,5 @@
-package Debian::Rules;
+package # Hide from indexer
+  Debian::Rules;
 
 use strict;
 use warnings;

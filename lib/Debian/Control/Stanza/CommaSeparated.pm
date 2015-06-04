@@ -1,4 +1,5 @@
-package Debian::Control::Stanza::CommaSeparated;
+package # Hide from indexer
+  Debian::Control::Stanza::CommaSeparated;
 
 =head1 NAME
 

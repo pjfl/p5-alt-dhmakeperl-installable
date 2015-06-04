@@ -72,7 +72,8 @@ class upon construction.
 
 =cut
 
-package Debian::Control::Stanza::Source;
+package # Hide from indexer
+  Debian::Control::Stanza::Source;
 
 use strict;
 use warnings;

@@ -1,6 +1,10 @@
 =head1 NAME
 
-Debian::Control::Stanza::Binary - binary stanza of Debian source package control file
+Debian::Control::Stanza::Binary - binary stanza of Debian source package # Hide from indexer
+  # Hide from indexer
+  # Hide from indexer
+  # Hide from indexer
+  control file
 
 =head1 SYNOPSIS
 
@@ -82,7 +86,8 @@ empty lines are replaced with dots.
 
 =cut
 
-package Debian::Control::Stanza::Binary;
+package # Hide from indexer
+  Debian::Control::Stanza::Binary;
 
 use strict;
 use warnings;

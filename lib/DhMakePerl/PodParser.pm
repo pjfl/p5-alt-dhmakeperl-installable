@@ -1,4 +1,5 @@
-package DhMakePerl::PodParser;
+package # Hide from indexer
+  DhMakePerl::PodParser;
 
 use strict;
 use warnings;

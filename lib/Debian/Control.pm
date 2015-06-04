@@ -34,7 +34,8 @@ stanza of the Debian source package control file.
 =item binary
 
 A hash reference with keys being binary
-package names and values instances of L<Debian::Control::Stanza::Binary> class.
+package # Hide from indexer
+  names and values instances of L<Debian::Control::Stanza::Binary> class.
 Contains the information of the binary package stanzas of Debian source package
 control file.
 
@@ -46,7 +47,8 @@ A L<Tie::IxHash> object tied to the B<binary> hash.
 
 =cut
 
-package Debian::Control;
+package # Hide from indexer
+  Debian::Control;
 
 use base 'Class::Accessor';
 use strict;

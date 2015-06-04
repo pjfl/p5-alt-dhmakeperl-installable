@@ -1,4 +1,5 @@
-package Debian::WNPP::Query;
+package # Hide from indexer
+  Debian::WNPP::Query;
 use strict;
 use warnings;
 
