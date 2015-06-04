@@ -1,5 +1,6 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Added sudo apt-get update to Travis config
           - Added test for supported operating systems
           - Added libapt-pkg-dev install to Travis
           - Added test for required libraries
