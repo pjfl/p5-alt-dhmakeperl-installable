@@ -74,36 +74,28 @@ exit 0;
 
 __DATA__
 
-use ExtUtils::CChecker;
+{  package Chubby;
 
-{  no warnings 'redefine';
+   use parent 'ExtUtils::CChecker';
 
-   *ExtUtils::CChecker::compile = sub {
-      my ($self, %args) = @_;
+   sub compile {
+      my ($self, %args) = @_; $args{ 'C++' } = 1;
 
-      $args{include_dirs} = [ map { defined $_ ? @{ $_ } : () }
-                              $self->{include_dirs}, $args{include_dirs} ];
-      $args{extra_compiler_flags} = [ map { defined $_ ? @{ $_ } : () }
-                                      $self->{extra_compiler_flags},
-                                      $args{extra_compiler_flags} ];
-      $args{ 'C++' } = 1;
-
-      $self->cbuilder->compile( %args );
-   };
+      return $self->SUPER::compile( %args );
+   }
 }
 
 sub ACTION_code {
-   my ($self, @args) = @_; my $cc = ExtUtils::CChecker->new;
-
+   my ($self, @args) = @_; my $cc = Chubby->new;
 
    my $success = $cc->try_find_libs_for
       ( libs => [ 'apt-pkg' ] , source => <<'EOS' );
-         #include <string>
-         #include <vector>
-         #include <apt-pkg/init.h>
-         int main(int argc, char *argv[]) {
-            return 0;
-         }
+        #include <string>
+        #include <vector>
+        #include <apt-pkg/init.h>
+        int main(int argc, char *argv[]) {
+           return 0;
+        }
 EOS
 
    $self->notes( have_required_libs => $success );

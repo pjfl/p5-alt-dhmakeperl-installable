@@ -1,5 +1,6 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Also test for existance of apt-pkg/init.h
           - Added Travis badge
           - Added Test::Compile to build requirements
           - Added sudo apt-get update to Travis config
