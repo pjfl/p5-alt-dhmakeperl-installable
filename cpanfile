@@ -23,6 +23,7 @@ on 'build' => sub {
   requires "ExtUtils::CChecker" => "0.10";
   requires "Module::Build" => "0.4004";
   requires "Module::Build::WithXSpp" => "0.14";
+  requires "Test::Compile" => "v1.2.1";
   requires "Test::Requires" => "0.06";
   requires "version" => "0.88";
 };

@@ -14,6 +14,7 @@ my $prereqs  = {
     'ExtUtils::CChecker' => '0.10',
     'Module::Build' => '0.4004',
     'Module::Build::WithXSpp' => '0.14',
+    'Test::Compile' => 'v1.2.1',
     'Test::Requires' => '0.06',
     'version' => '0.88'
   },
