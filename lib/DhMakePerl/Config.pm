@@ -67,7 +67,7 @@ use File::ShareDir;
 
 use constant DEFAULTS => {
     backups       => 1,
-    data_dir      => File::ShareDir::dist_dir( 'DhMakePerl' ),
+    data_dir      => File::ShareDir::dist_dir( 'Alt-DhMakePerl-installable' ),
     dbflags       => ( $> == 0 ? "" : "-rfakeroot" ),
     dh            => 9,
     dist          => '',

@@ -59,26 +59,6 @@ sub ACTION_generate_main_xs {
    return 1;
 }
 
-sub _find_share_dir_files {
-   my $self = shift; my $share_dir = $self->share_dir or return; my @file_map;
-
-   if ($share_dir->{dist}) {
-      push @file_map, $self->_share_dir_map
-         ( 'dist/DhMakePerl', $share_dir->{dist} );
-   }
-
-   if ($share_dir->{module}) {
-      for my $mod (keys %{ $share_dir->{module} }) {
-         (my $altmod = $mod) =~ s{::}{-}g;
-
-         push @file_map, $self->_share_dir_map
-            ( "module/${altmod}", $share_dir->{module}{ $mod } );
-      }
-   }
-
-   return { @file_map };
-}
-
 sub _infer_xs_spec {
    my $self = shift; my $spec = $self->SUPER::_infer_xs_spec( @_ );
 

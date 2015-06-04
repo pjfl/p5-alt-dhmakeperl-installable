@@ -6,9 +6,9 @@ use File::Spec::Functions qw( catdir updir );
 use FindBin               qw( $Bin );
 use lib               catdir( $Bin, updir, 'lib' ), catdir( $Bin, 'lib' );
 
-use English qw( -no_match_vars );
 use Test::More;
 use Test::Requires { version => 0.88 };
+use English      qw( -no_match_vars  );
 use Module::Build;
 use Sys::Hostname;
 
@@ -18,10 +18,13 @@ BEGIN {
    $builder  = eval { Module::Build->current };
    $notes    = $builder ? $builder->notes : {};
    $perl_ver = $notes->{min_perl_version} || 5.008;
-   $notes->{testing} and lc $OSNAME ne 'linux'
-                     and plan skip_all => 'OS unsupported';
-   $notes->{testing} and not $notes->{have_required_libs}
-                     and plan skip_all => 'Required libs not found';
+
+   if ($notes->{testing}) {
+      $Bin =~ m{ : .+ : }mx and plan skip_all => 'Two colons in $Bin path';
+      lc $OSNAME ne 'linux' and plan skip_all => 'OS unsupported';
+      $notes->{have_required_libs}
+                             or plan skip_all => 'Required libs not found';
+   }
 }
 
 use Test::Requires "${perl_ver}";

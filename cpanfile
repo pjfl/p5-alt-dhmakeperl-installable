@@ -1,6 +1,7 @@
 requires "Array::Unique" => "0.08";
 requires "CPAN::Meta" => "2.142690";
 requires "Class::Accessor" => "0.34";
+requires "Date::Format" => "2.24";
 requires "Email::Address" => "1.905";
 requires "Email::Date::Format" => "1.005";
 requires "File::ShareDir" => "1.102";

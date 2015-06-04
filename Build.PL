@@ -28,6 +28,7 @@ my $prereqs  = {
     'Array::Unique' => '0.08',
     'CPAN::Meta' => '2.142690',
     'Class::Accessor' => '0.34',
+    'Date::Format' => '2.24',
     'Email::Address' => '1.905',
     'Email::Date::Format' => '1.005',
     'File::ShareDir' => '1.102',
@@ -64,7 +65,9 @@ Module::Build::WithXSpp->subclass( code => do { local $/; <DATA> } )->new(
    'module_name' => $name,
    'notes' => { min_perl_version => $perl_ver, testing => $testing->() },
    %{ $prereqs },
-
+  'share_dir' => {
+    'dist' => 'share'
+  },
 )->create_build_script;
 
 exit 0;
@@ -92,26 +95,6 @@ EOS
 
 sub ACTION_generate_main_xs {
    return 1;
-}
-
-sub _find_share_dir_files {
-   my $self = shift; my $share_dir = $self->share_dir or return; my @file_map;
-
-   if ($share_dir->{dist}) {
-      push @file_map, $self->_share_dir_map
-         ( 'dist/DhMakePerl', $share_dir->{dist} );
-   }
-
-   if ($share_dir->{module}) {
-      for my $mod (keys %{ $share_dir->{module} }) {
-         (my $altmod = $mod) =~ s{::}{-}g;
-
-         push @file_map, $self->_share_dir_map
-            ( "module/${altmod}", $share_dir->{module}{ $mod } );
-      }
-   }
-
-   return { @file_map };
 }
 
 sub _infer_xs_spec {
