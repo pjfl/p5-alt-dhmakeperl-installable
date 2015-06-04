@@ -1,3 +1,7 @@
+<div>
+    <a href="https://travis-ci.org/pjfl/p5-alt-dhmakeperl-installable"><img src="https://travis-ci.org/pjfl/p5-alt-dhmakeperl-installable.svg?branch=master" alt="Travis CI Badge"></a>
+</div>
+
 # Name
 
 Alt::DhMakePerl::installable - Create Debian source package from CPAN dist

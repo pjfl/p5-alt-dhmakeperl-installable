@@ -76,11 +76,31 @@ __DATA__
 
 use ExtUtils::CChecker;
 
+{  no warnings 'redefine';
+
+   *ExtUtils::CChecker::compile = sub {
+      my ($self, %args) = @_;
+
+      $args{include_dirs} = [ map { defined $_ ? @{ $_ } : () }
+                              $self->{include_dirs}, $args{include_dirs} ];
+      $args{extra_compiler_flags} = [ map { defined $_ ? @{ $_ } : () }
+                                      $self->{extra_compiler_flags},
+                                      $args{extra_compiler_flags} ];
+      $args{ 'C++' } = 1;
+
+      $self->cbuilder->compile( %args );
+   };
+}
+
 sub ACTION_code {
    my ($self, @args) = @_; my $cc = ExtUtils::CChecker->new;
 
+
    my $success = $cc->try_find_libs_for
       ( libs => [ 'apt-pkg' ] , source => <<'EOS' );
+         #include <string>
+         #include <vector>
+         #include <apt-pkg/init.h>
          int main(int argc, char *argv[]) {
             return 0;
          }

@@ -1,7 +1,7 @@
 package Alt::DhMakePerl::installable;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 13 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 14 $ =~ /\d+/gmx );
 
 1;
 
@@ -10,6 +10,12 @@ __END__
 =pod
 
 =encoding utf-8
+
+=begin html
+
+<a href="https://travis-ci.org/pjfl/p5-alt-dhmakeperl-installable"><img src="https://travis-ci.org/pjfl/p5-alt-dhmakeperl-installable.svg?branch=master" alt="Travis CI Badge"></a>
+
+=end html
 
 =head1 Name
 
