@@ -31,13 +31,15 @@ None
 
 Requires the following native packages to be installed
 
-- `gettext`
 - `libapt-pkg-dev`
 
 # Incompatibilities
 
-The hard coded share directory path was replaced with a call to
-[File::ShareDir](https://metacpan.org/pod/File::ShareDir)
+The hard coded share directory path (in the original) was replaced with a call
+to [File::ShareDir](https://metacpan.org/pod/File::ShareDir)
+
+This distribution will only install on the Linux operating system if the
+dependent native packages are installed
 
 # Bugs and Limitations
 

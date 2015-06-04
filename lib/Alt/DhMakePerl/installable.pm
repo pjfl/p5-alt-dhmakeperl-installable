@@ -1,7 +1,7 @@
 package Alt::DhMakePerl::installable;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 9 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 10 $ =~ /\d+/gmx );
 
 1;
 
@@ -52,8 +52,11 @@ Requires the following native packages to be installed
 
 =head1 Incompatibilities
 
-The hard coded share directory path was replaced with a call to
-L<File::ShareDir>
+The hard coded share directory path (in the original) was replaced with a call
+to L<File::ShareDir>
+
+This distribution will only install on the Linux operating system if the
+dependent native packages are installed
 
 =head1 Bugs and Limitations
 
