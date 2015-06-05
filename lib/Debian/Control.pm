@@ -80,16 +80,11 @@ empty instance of L<Tie::IxHash>.
 =cut
 
 sub new {
-    my $class = shift;
-
-    my $self = $class->SUPER::new();
+    my $class = shift; my $self = $class->SUPER::new(); my %bint;
 
     $self->_parser( Parse::DebControl->new );
-
-    # Not sure how this ever worked
-    my %bt;  my $tied = tie %bt, 'Tie::IxHash';
-    $self->binary_tie( $tied );
-    $self->binary( $tied );
+    $self->binary_tie( tie %bint, 'Tie::IxHash' );
+    $self->binary( \%bint );
     $self->source( Debian::Control::Stanza::Source->new );
 
     return $self;

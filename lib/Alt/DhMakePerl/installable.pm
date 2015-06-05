@@ -1,7 +1,9 @@
 package Alt::DhMakePerl::installable;
 
 use 5.010001;
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 16 $ =~ /\d+/gmx );
+use strict;
+use warnings;
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 17 $ =~ /\d+/gmx );
 
 1;
 

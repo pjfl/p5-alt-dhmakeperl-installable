@@ -135,20 +135,18 @@ files.
 =cut
 
 sub scan_perl_mod {
-    my ( $class, $mod ) = @_;
+   my ($class, $mod) = @_;
 
-    $mod =~ s{::}{/}g;
-    $mod .= ".pm" unless $mod =~ /\.pm$/;
+   $mod =~ s{ :: }{/}gmx; $mod =~ m{ \.pm \z }mx or $mod .= '.pm';
 
-    my @dirs = grep { defined and m{^/} and not m{/usr/local/} }
-        map { Cwd::realpath($_) } @INC;
-    my $re
-        = "^(?:"
-            . join( '|', map( quotemeta($_), @dirs ) ) . ")/"
-            . quotemeta($mod) . "\$";
-    $re = qr($re);
+   my @dirs = grep { defined and m{ \A / }mx and not m{ /usr/local/ }mx }
+               map { Cwd::realpath( $_ ) } @INC;
+   my $re   = '\A (?: '
+            . (join '|', map { quotemeta $_ } @dirs) . ' )/'
+            . quotemeta( $mod ) . ' \z';
+   warn "$re\n";
 
-    return $class->scan_pattern($re);
+   return $class->scan_pattern( qr{ $re }mx );
 }
 
 =back

@@ -1,5 +1,6 @@
 Revision history for Alt::DhMakePerl::installable
 
+          - Added more tests
           - Hide DhMakeFile and Debian packages from indexer
           - Also test for existance of apt-pkg/init.h
           - Added Travis badge

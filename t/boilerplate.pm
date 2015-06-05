@@ -12,9 +12,10 @@ use English      qw( -no_match_vars  );
 use Module::Build;
 use Sys::Hostname;
 
-my $builder; my $notes; my $perl_ver;
+my ($builder, $host, $notes, $perl_ver);
 
 BEGIN {
+   $host     = lc hostname;
    $builder  = eval { Module::Build->current };
    $notes    = $builder ? $builder->notes : {};
    $perl_ver = $notes->{min_perl_version} || 5.008;
@@ -24,6 +25,7 @@ BEGIN {
       lc $OSNAME ne 'linux' and plan skip_all => 'OS unsupported';
       $notes->{have_required_libs}
                              or plan skip_all => 'Required libs not found';
+      $host eq 'xxxxxx'     and plan skip_all => 'Broken smoker';
    }
 }
 

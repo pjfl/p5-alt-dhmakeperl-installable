@@ -25,6 +25,8 @@ on 'build' => sub {
   requires "Module::Build" => "0.4004";
   requires "Module::Build::WithXSpp" => "0.14";
   requires "Test::Compile" => "v1.2.1";
+  requires "Test::Differences" => "0.62";
+  requires "Test::Exception" => "0.35";
   requires "Test::Requires" => "0.06";
   requires "version" => "0.88";
 };

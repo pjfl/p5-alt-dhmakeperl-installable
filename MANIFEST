@@ -114,6 +114,11 @@ t/05kwalitee.t
 t/06yaml.t
 t/10-load.t
 t/20-aptpkg.t
+t/30-control.t
+t/40-aptcontents.t
+t/50-dependency.t
+t/55-dependencies.t
+t/60-dpkglists.t
 t/boilerplate.pm
 t/cache/etc/apt.conf
 t/cache/etc/preferences
@@ -129,5 +134,8 @@ t/cache/var/pkgcache.bin
 t/cache/var/srcpkgcache.bin
 t/cache/var/status
 t/config.conf
+t/contents/sources.list
+t/contents/test_debian_dists_sid_main_Contents
+t/contents/test_debian_dists_testing_main_Contents
 xs/AptPkg.xs
 xs/typemap

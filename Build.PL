@@ -3,11 +3,6 @@ use warnings;
 
 use Module::Build::WithXSpp;
 
-my $testing  = sub { $ENV{AUTOMATED_TESTING}
-                  || $ENV{PERL_CPAN_REPORTER_CONFIG}
-                  || $ENV{PERL5_CPANPLUS_IS_VERSION} };
-my $whimper  = sub { print {*STDOUT} $_[ 0 ]."\n"; exit 0 };
-my $perl_ver = 5.010001;
 my $name     = 'Alt-DhMakePerl-installable'; $name =~ s{ - }{::}gmx;
 my $prereqs  = {
   'build_requires' => {
@@ -15,6 +10,8 @@ my $prereqs  = {
     'Module::Build' => '0.4004',
     'Module::Build::WithXSpp' => '0.14',
     'Test::Compile' => 'v1.2.1',
+    'Test::Differences' => '0.62',
+    'Test::Exception' => '0.35',
     'Test::Requires' => '0.06',
     'version' => '0.88'
   },
@@ -48,6 +45,11 @@ my $prereqs  = {
     'version' => '0.88'
   },
 };
+my $perl_ver = $prereqs->{requires}->{perl};
+my $testing  = sub { $ENV{AUTOMATED_TESTING}
+                  || $ENV{PERL_CPAN_REPORTER_CONFIG}
+                  || $ENV{PERL5_CPANPLUS_IS_VERSION} };
+my $whimper  = sub { print {*STDOUT} $_[ 0 ]."\n"; exit 0 };
 my $stop     = sub {
    $testing->() or $whimper->( $_[ 0 ] );
    $prereqs->{build_requires} = { %{ $prereqs->{configure_requires} } };

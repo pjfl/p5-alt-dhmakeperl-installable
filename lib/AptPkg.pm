@@ -1,13 +1,12 @@
 package AptPkg;
 
-require 5.005_62;
+use 5.005_62;
 use strict;
 use warnings;
 
-require DynaLoader;
+use Alt::DhMakePerl::installable; our $VERSION = $Alt::DhMakePerl::installable::VERSION;
 
-our @ISA = qw(DynaLoader);
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 15 $ =~ /\d+/gmx );
+require DynaLoader; our @ISA = qw( DynaLoader );
 
 bootstrap AptPkg $VERSION;
 
